@@ -44,7 +44,7 @@ class DummyApiPlugin(Plugin):
         # Append the required evidences to the evidences list
         evidences.append(self.fetch_user_details())
         evidences.append(self.fetch_posts(60))
-        evidences.append(self.fetch_comments(60))
+        evidences.append(self.fetch_posts_with_comments(60))
 
         return evidences
     
@@ -76,7 +76,7 @@ class DummyApiPlugin(Plugin):
             print(f"Error: Failed to fetch posts. Status code {posts_response.status_code}")
             return
         
-    def fetch_comments(self,num_of_posts):
+    def fetch_posts_with_comments(self,num_of_posts):
         """
         Fetches the received number of posts with their comments from the system.
         """
